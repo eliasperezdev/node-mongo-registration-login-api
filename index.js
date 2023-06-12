@@ -1,6 +1,12 @@
 import express from "express"
+import dotenv from 'dotenv'
+import connectDB from "./src/config/index.js"
+import cors from 'cors'
 
 const app = express()
+
+dotenv.config()
+connectDB()
 
 //Cors
 const whiteList = [process.env.FRONTEND_URL];
