@@ -30,3 +30,11 @@ const validateUserData = async ( req, res) => {
 
    next();
 }
+
+const validateAuth = async (req,res) => {
+  
+}
+
+export {
+  validateUserData
+}
