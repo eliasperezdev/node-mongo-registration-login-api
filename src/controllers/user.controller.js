@@ -1,3 +1,4 @@
+import { registerEmail } from "../helpers/emails";
 import generateId from "../helpers/generateId";
 import User from "../models/User";
 import { validateEmail, validateName, validatePassword } from "../validators/User/user.Validator";
@@ -16,7 +17,11 @@ const register =async (req,res) => {
 
         const newUser = await user.save()
         
-        //Enviar email
+        registerEmail({
+            email: user.email,
+            name: user.name,
+            token: user.token
+        })   
         
          res.status(200).json({ msg: "Usuario creado correctamente, Revisa tu email para confirmar"})
 
